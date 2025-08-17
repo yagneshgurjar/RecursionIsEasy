@@ -1,0 +1,17 @@
+def searchRange(self, nums, target):
+    AllIndicesList = HelperFunc(nums,target,0)              // I want to pass aditional argument so i used Helper Function
+    if(len(AllIndicesList) == 0):
+        return [-1,-1]
+        
+    return [AllIndicesList[0],AllIndicesList[-1]]
+
+def HelperFunc(nums,target,index):
+    if(len(nums) == index):
+        return []
+
+    smallList = HelperFunc(nums,target,index+1)
+
+    if(nums[index] == target):
+        smallList.insert(0,index)
+
+    return smallList
