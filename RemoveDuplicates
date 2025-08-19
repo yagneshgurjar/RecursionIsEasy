@@ -1,0 +1,24 @@
+Q : Remove Duplicates From Sorted Array,
+
+LeetCode Question Number : 26
+
+
+<-------------------------------------------------------------------------------------------------------------------->
+
+
+def removeDuplicates(nums):
+    return HelperFunc(nums,0)
+
+def HelperFunc(nums,index):
+
+    if(len(nums) <= 1):                 // For Empty array or length of array is 1
+        return len(nums)
+
+    if(len(nums)-1 == index):
+        return len(nums)
+
+    if(nums[index] == nums[index+1]):
+        nums.pop(index+1)
+        return HelperFunc(nums,index)
+
+    return HelperFunc(nums,index+1)
